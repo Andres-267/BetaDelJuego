@@ -3,15 +3,26 @@ using UnityEngine;
 public class Jugador : Personaje
 {
     public int fuerzaSalto;
+    public bool enSuelo;
 
      void Update()
     {
         float x = Input.GetAxis("Horizontal");
         transform.Translate(x*velocidad*Time.deltaTime,0,0);
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if ((Input.GetKeyDown(KeyCode.Space))&& enSuelo)
         {
             GetComponent<Rigidbody>().AddForce(Vector3.up*fuerzaSalto,ForceMode.Impulse);
+
+            enSuelo = false;
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Suelo"))
+        {
+            enSuelo = true;
         }
     }
 
