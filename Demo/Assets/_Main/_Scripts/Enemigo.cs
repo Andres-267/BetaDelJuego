@@ -1,26 +1,47 @@
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemigo : Personaje
 {
-    public Vector3 direccion = Vector3.right;
+    public float distanciaPatrulla = 5f;
+    public int daño = 10;
+
+    private NavMeshAgent agente;
+
+    private void Start()
+    {
+        agente = GetComponent<NavMeshAgent>();
+
+        agente.speed = velocidad;
+
+        agente.updateRotation = false;
+        agente.updateUpAxis = false;
+
+        MoverAUnPuntoAleatorio();
+    }
 
     private void Update()
     {
-        transform.Translate(direccion * velocidad*Time.deltaTime);
+        if (!agente.pathPending && agente.remainingDistance <= 0.5f)
+        {
+            MoverAUnPuntoAleatorio();
+        }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void MoverAUnPuntoAleatorio()
     {
-        if (collision.gameObject.CompareTag("Pared"))
-        {
-            direccion = -direccion;
-        }
+        Vector3 puntoAleatorio = transform.position +
+                                 Random.insideUnitSphere * distanciaPatrulla;
 
-        if (collision.gameObject.CompareTag("Player"))
+        NavMeshHit puntoNavMesh;
+
+        if (NavMesh.SamplePosition(
+            puntoAleatorio,
+            out puntoNavMesh,
+            distanciaPatrulla,
+            NavMesh.AllAreas))
         {
-            Jugador jugador = collision.gameObject.GetComponent<Jugador>();
-            if (jugador != null) {jugador.Morir(); }
+            agente.SetDestination(puntoNavMesh.position);
         }
     }
 
