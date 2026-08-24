@@ -6,7 +6,7 @@ public class Caja : Objetos
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 0.8f);
         }
     }
 }
