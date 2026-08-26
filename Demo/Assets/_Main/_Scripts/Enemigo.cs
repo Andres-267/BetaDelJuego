@@ -7,8 +7,8 @@ public class Enemigo : Personaje
     public int daño = 10;
 
     [Header("Detección de Jugador")]
-    public float rangoVision = 6f; // Distancia a la que el enemigo te ve
-    private Transform transformJugador; // Guardará la referencia del jugador
+    public float rangoVision = 6f; 
+    private Transform transformJugador; 
 
     private NavMeshAgent agente;
 
@@ -21,7 +21,7 @@ public class Enemigo : Personaje
         agente.updateRotation = false;
         agente.updateUpAxis = false;
 
-        // Busca automáticamente al jugador por su Tag al iniciar la escena
+        
         GameObject jugadorObject = GameObject.FindWithTag("Player");
         if (jugadorObject != null)
         {
@@ -33,15 +33,15 @@ public class Enemigo : Personaje
 
     private void Update()
     {
-        // 1. Verificamos si encontramos al jugador en la escena y calculamos la distancia
+        
         if (transformJugador != null && Vector3.Distance(transform.position, transformJugador.position) <= rangoVision)
         {
-            // COMPORTAMIENTO PERSEGUIR: Va directo a la posición actual del jugador
+            
             agente.SetDestination(transformJugador.position);
         }
         else
         {
-            // COMPORTAMIENTO PATRULLA: Si no hay jugador cerca, sigue con tu lógica original
+            
             if (!agente.pathPending && agente.remainingDistance <= 0.5f)
             {
                 MoverAUnPuntoAleatorio();
@@ -72,7 +72,7 @@ public class Enemigo : Personaje
         Destroy(gameObject);
     }
 
-    // Dibuja un círculo en el editor para que puedas calibrar visualmente el rango de visión
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
