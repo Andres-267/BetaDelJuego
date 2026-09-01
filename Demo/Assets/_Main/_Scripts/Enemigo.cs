@@ -1,68 +1,31 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Enemigo : Personaje
 {
-    public float distanciaPatrulla = 5f;
-    public int daño = 10;
+    public Vector3 direccion = Vector3.left;
 
-    [Header("Detección de Jugador")]
-    public float rangoVision = 6f; 
-    private Transform transformJugador; 
-
-    private NavMeshAgent agente;
-
-    private void Start()
+    protected override void Start()
     {
-        agente = GetComponent<NavMeshAgent>();
-
-        agente.speed = velocidad;
-
-        agente.updateRotation = false;
-        agente.updateUpAxis = false;
-
-        
-        GameObject jugadorObject = GameObject.FindWithTag("Player");
-        if (jugadorObject != null)
-        {
-            transformJugador = jugadorObject.transform;
-        }
-
-        MoverAUnPuntoAleatorio();
+        base.Start();
     }
-
     private void Update()
     {
-        
-        if (transformJugador != null && Vector3.Distance(transform.position, transformJugador.position) <= rangoVision)
-        {
-            
-            agente.SetDestination(transformJugador.position);
-        }
-        else
-        {
-            
-            if (!agente.pathPending && agente.remainingDistance <= 0.5f)
-            {
-                MoverAUnPuntoAleatorio();
-            }
-        }
+        transform.Translate(direccion * velocidad * Time.deltaTime);
     }
 
-    private void MoverAUnPuntoAleatorio()
+    private void OnCollisionEnter(Collision collision)
     {
-        Vector3 puntoAleatorio = transform.position +
-                                 Random.insideUnitSphere * distanciaPatrulla;
 
-        NavMeshHit puntoNavMesh;
-
-        if (NavMesh.SamplePosition(
-            puntoAleatorio,
-            out puntoNavMesh,
-            distanciaPatrulla,
-            NavMesh.AllAreas))
+        if (collision.gameObject.CompareTag("Pared"))
         {
-            agente.SetDestination(puntoNavMesh.position);
+            direccion = -direccion;
+            Debug.Log("direccion " + direccion);
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Jugador jugador = collision.gameObject.GetComponent<Jugador>();
+            if (jugador != null) { jugador.RecibirDano(1); }
         }
     }
 
@@ -72,10 +35,4 @@ public class Enemigo : Personaje
         Destroy(gameObject);
     }
 
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, rangoVision);
-    }
 }

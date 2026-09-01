@@ -2,60 +2,49 @@ using UnityEngine;
 
 public class Jugador : Personaje
 {
-    public int fuerzaSalto;
-    public bool enSuelo;
+    [SerializeField] private int fuerzaSalto;
+    private int puntos = 0;
+
+    private Rigidbody rb;
+
+
+    protected override void Start()
+    {
+        base.Start();
+        rb = GetComponent<Rigidbody>();
+    }
+    public int GetPuntos()
+    {
+        return puntos;
+    }
+
+    public void AgregarPuntos(int cantPuntos)
+    {
+        if (cantPuntos > 0)  puntos += cantPuntos;
+    }
 
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
-        transform.Translate(x * velocidad * Time.deltaTime, 0, 0);
+        transform.Translate(x*velocidad*Time.deltaTime,0,0);
 
-        if ((Input.GetKeyDown(KeyCode.Space)) && enSuelo)
-        {
-            GetComponent<Rigidbody>().AddForce(
-                Vector3.up * fuerzaSalto,
-                ForceMode.Impulse
-            );
-
-            enSuelo = false;
+        if (Input.GetKeyDown(KeyCode.Space)) { 
+            GetComponent<Rigidbody>().AddForce(Vector3.up*fuerzaSalto,ForceMode.Impulse);
         }
     }
-
-    public void OnCollisionEnter(Collision collision)
+    public void RecibirDano(int cantidad)
     {
-        if (collision.gameObject.CompareTag("Suelo"))
+        if (cantidad > 0)
         {
-            enSuelo = true;
-        }
-
-        if (collision.gameObject.CompareTag("Enemigo"))
-        {
-            Enemigo enemigo = collision.gameObject.GetComponent<Enemigo>();
-
-            if (enemigo != null)
-            {
-                RecibirDano(enemigo.daño);
-            }
+            vida -= cantidad;
+            Debug.Log(nombre + " vida: " + vida);
+            if (vida <= 0) Morir();
         }
     }
-
     public override void Morir()
     {
-        Debug.Log("El jugador ha muerto.");
-    }
-
-    public void RecibirDano(int danio)
-    {
-        vida -= danio;
-
-        Debug.Log(
-            "El jugador ha recibido " + danio +
-            " de daño. Vida restante: " + vida
-        );
-
-        if (vida <= 0)
-        {
-            Morir();
-        }
+        base.Morir();
+        //falta logica de juego para el GAME OVER
+        Debug.Log("Jake fue herido");
     }
 }

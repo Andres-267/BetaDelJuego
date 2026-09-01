@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Caja : Objetos
+public class Caja : ObjetoMundo
 {   
     private void OnCollisionEnter(Collision collision)
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bandera : Objetos
+public class Bandera : ObjetoMundo
 {
         private void OnCollisionEnter(Collision collision)
     {
