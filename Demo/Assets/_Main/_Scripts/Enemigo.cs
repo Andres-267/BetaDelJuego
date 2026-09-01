@@ -4,6 +4,7 @@ public class Enemigo : Personaje
 {
     public Vector3 direccion = Vector3.left;
 
+
     protected override void Start()
     {
         base.Start();

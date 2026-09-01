@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Jugador : Personaje
 {
     [SerializeField] private int fuerzaSalto;
     private int puntos = 0;
+
+    public bool enSuelo;
 
     private Rigidbody rb;
 
@@ -28,10 +31,22 @@ public class Jugador : Personaje
         float x = Input.GetAxis("Horizontal");
         transform.Translate(x*velocidad*Time.deltaTime,0,0);
 
-        if (Input.GetKeyDown(KeyCode.Space)) { 
+        if ((Input.GetKeyDown(KeyCode.Space))&& enSuelo) 
+        { 
             GetComponent<Rigidbody>().AddForce(Vector3.up*fuerzaSalto,ForceMode.Impulse);
+
+            enSuelo = false;
         }
     }
+
+        public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Suelo"))
+        {
+                enSuelo = true;
+        }
+    }
+
     public void RecibirDano(int cantidad)
     {
         if (cantidad > 0)
@@ -41,10 +56,13 @@ public class Jugador : Personaje
             if (vida <= 0) Morir();
         }
     }
+
     public override void Morir()
     {
         base.Morir();
         //falta logica de juego para el GAME OVER
-        Debug.Log("Jake fue herido");
+        SceneManager.LoadScene(2 );
+
+        
     }
 }

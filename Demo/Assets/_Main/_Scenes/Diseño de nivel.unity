@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 2689643}
   - component: {fileID: 2689642}
   - component: {fileID: 2689641}
-  - component: {fileID: 2689640}
   - component: {fileID: 2689639}
   - component: {fileID: 2689638}
   m_Layer: 0
@@ -182,28 +181,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &2689640
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2689637}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!65 &2689641
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -309,9 +286,10 @@ GameObject:
   - component: {fileID: 133341639}
   - component: {fileID: 133341638}
   - component: {fileID: 133341637}
+  - component: {fileID: 133341640}
   m_Layer: 0
   m_Name: Plane (1)
-  m_TagString: Suelo
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -324,13 +302,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133341635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0019437503, y: 0.0019437503, z: 0.70710415, w: 0.70710415}
-  m_LocalPosition: {x: -5.02, y: -3.3849, z: 15.14}
-  m_LocalScale: {x: 0.56005585, y: 1, z: 1}
+  m_LocalRotation: {x: -0.0019437503, y: 0.0019437503, z: -0.70710415, w: 0.70710415}
+  m_LocalPosition: {x: -5.0234, y: -3.3849, z: 14.519}
+  m_LocalScale: {x: 0.56005585, y: 1, z: 1.1242}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 355947610}
-  m_LocalEulerAnglesHint: {x: 0, y: 0.315, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.315, z: -90}
 --- !u!64 &133341637
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -410,6 +388,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133341635}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &133341640
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133341635}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.000002, y: 0.95781803, z: 9.999999}
+  m_Center: {x: -5.7549197e-16, y: 0.47890335, z: 1.0446586e-10}
 --- !u!1 &202702651
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +421,6 @@ GameObject:
   - component: {fileID: 202702657}
   - component: {fileID: 202702656}
   - component: {fileID: 202702655}
-  - component: {fileID: 202702654}
   - component: {fileID: 202702653}
   - component: {fileID: 202702652}
   m_Layer: 0
@@ -473,28 +471,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &202702654
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202702651}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!65 &202702655
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -600,7 +576,6 @@ GameObject:
   - component: {fileID: 266478138}
   - component: {fileID: 266478137}
   - component: {fileID: 266478136}
-  - component: {fileID: 266478135}
   - component: {fileID: 266478134}
   - component: {fileID: 266478133}
   m_Layer: 0
@@ -651,28 +626,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &266478135
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 266478132}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!65 &266478136
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1469,7 +1422,6 @@ GameObject:
   - component: {fileID: 599935436}
   - component: {fileID: 599935435}
   - component: {fileID: 599935434}
-  - component: {fileID: 599935433}
   - component: {fileID: 599935432}
   - component: {fileID: 599935431}
   m_Layer: 0
@@ -1520,28 +1472,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &599935433
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599935430}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!65 &599935434
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1895,7 +1825,6 @@ GameObject:
   - component: {fileID: 648363054}
   - component: {fileID: 648363053}
   - component: {fileID: 648363052}
-  - component: {fileID: 648363051}
   - component: {fileID: 648363050}
   - component: {fileID: 648363049}
   m_Layer: 0
@@ -1946,28 +1875,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &648363051
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648363048}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!65 &648363052
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2073,7 +1980,6 @@ GameObject:
   - component: {fileID: 675501910}
   - component: {fileID: 675501909}
   - component: {fileID: 675501908}
-  - component: {fileID: 675501907}
   - component: {fileID: 675501906}
   - component: {fileID: 675501905}
   m_Layer: 0
@@ -2124,28 +2030,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &675501907
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675501904}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!65 &675501908
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2500,7 +2384,7 @@ GameObject:
   - component: {fileID: 810312306}
   - component: {fileID: 810312305}
   - component: {fileID: 810312303}
-  - component: {fileID: 810312302}
+  - component: {fileID: 810312309}
   m_Layer: 0
   m_Name: Enemigo
   m_TagString: Enemigo
@@ -2508,20 +2392,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &810312302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810312301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c8d37264a11d24fb242588784e3bbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemigo
-  nombre: Salchipapa
-  direccion: {x: -1, y: 0, z: 0}
 --- !u!54 &810312303
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2642,6 +2512,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1564331977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &810312309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810312301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e027ec9e549ea96499a228fd55843db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemigo
+  nombre: kupa
+  direccion: {x: -1, y: 0, z: 0}
 --- !u!1 &828456848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000010619805496, guid: 395dcd74773407e4faa9906eedf6f75d, type: 3}
@@ -3016,7 +2900,6 @@ GameObject:
   - component: {fileID: 1046468221}
   - component: {fileID: 1046468220}
   - component: {fileID: 1046468219}
-  - component: {fileID: 1046468218}
   - component: {fileID: 1046468217}
   - component: {fileID: 1046468216}
   m_Layer: 0
@@ -3067,28 +2950,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &1046468218
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046468215}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!65 &1046468219
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3805,9 +3666,10 @@ GameObject:
   - component: {fileID: 1322415499}
   - component: {fileID: 1322415498}
   - component: {fileID: 1322415497}
+  - component: {fileID: 1322415500}
   m_Layer: 0
   m_Name: Plane (3)
-  m_TagString: Suelo
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3906,6 +3768,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322415495}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1322415500
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322415495}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.000002, y: 0.7749368, z: 9.999999}
+  m_Center: {x: 0.0000074996706, y: 0.15178254, z: 0.00000095369}
 --- !u!1 &1397826043
 GameObject:
   m_ObjectHideFlags: 0
@@ -4756,6 +4639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Jugador
   nombre: Messi
   fuerzaSalto: 9
+  enSuelo: 0
 --- !u!1 &1700481555
 GameObject:
   m_ObjectHideFlags: 0

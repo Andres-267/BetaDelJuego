@@ -4,9 +4,9 @@ public class Personaje : MonoBehaviour
 {
     public string nombre;
     protected int vida;
-    protected int velocidad;
+    protected int velocidad = 8;
 
-    private int vidaInicial = 3;
+    private int vidaInicial = 5;
     protected virtual void Start()
     {
         vida = vidaInicial;
