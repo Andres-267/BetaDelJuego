@@ -7,7 +7,7 @@ public class Moneda : ObjetoMundo
     public override void AlContacto(Jugador jugador)
     {
         jugador.AgregarPuntos(puntos);
-        Debug.Log("Moneda recogida puntos: " + jugador.GetPuntos());
+        Debug.Log("Moneda recogida puntos: " + jugador.ObtenerPuntaje());
         Destroy(gameObject);
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Jugador : Personaje
+/*public class Jugador : Personaje
 {
     [SerializeField] private int fuerzaSalto;
     private int puntos = 0;
@@ -72,5 +72,65 @@ public class Jugador : Personaje
         base.Morir();
         //falta logica de juego para el GAME OVER
         SceneManager.LoadScene(2);
+    }
+}
+*/
+
+public class Jugador : Personaje
+{
+    [SerializeField] private int fuerzaSalto;
+    [SerializeField] private int vidaMaxima;
+
+    private VidaPersonaje vidaPersonaje;
+
+    private MovimientoJugador movimientoJugador;
+
+    private PuntajePersonaje puntajePersonaje;
+
+    protected override void Start()
+    {
+        base.Start();
+        vidaPersonaje = new VidaPersonaje(vidaMaxima);
+        puntajePersonaje = new PuntajePersonaje();
+        movimientoJugador = new MovimientoJugador(velocidad, fuerzaSalto, this.transform, this.GetComponent<Rigidbody>());
+    }
+
+    private void Update()
+    {
+        movimientoJugador.Mover();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        movimientoJugador.OnCollisionEnter(collision);
+    }
+
+    public void RecibirDano(int cantidad)
+    {
+        bool murio = vidaPersonaje.RecibirDano(cantidad);
+        if (murio)
+        {
+            Morir();
+        }
+
+       
+    }
+
+    public override void Morir()
+    {
+            base.Morir();
+            
+            SceneManager.LoadScene(2);
+    
+    }
+
+    public void AgregarPuntos(int cantidad)
+    {
+        puntajePersonaje.AgregarPuntos(cantidad);
+    }
+
+    public int ObtenerPuntaje()
+    {
+        return puntajePersonaje.ObtenerPuntaje();
     }
 }
