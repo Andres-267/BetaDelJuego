@@ -16,6 +16,7 @@ public class Jugador : Personaje
         base.Start();
         rb = GetComponent<Rigidbody>();
     }
+
     public int GetPuntos()
     {
         return puntos;
@@ -23,27 +24,36 @@ public class Jugador : Personaje
 
     public void AgregarPuntos(int cantPuntos)
     {
-        if (cantPuntos > 0)  puntos += cantPuntos;
+        if (cantPuntos > 0) puntos += cantPuntos;
     }
 
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
-        transform.Translate(x*velocidad*Time.deltaTime,0,0);
+        float z = Input.GetAxis("Vertical");
 
-        if ((Input.GetKeyDown(KeyCode.Space))&& enSuelo) 
-        { 
-            GetComponent<Rigidbody>().AddForce(Vector3.up*fuerzaSalto,ForceMode.Impulse);
+        transform.Translate(
+            x * velocidad * Time.deltaTime,
+            0,
+            z * velocidad * Time.deltaTime
+        );
+
+        if ((Input.GetKeyDown(KeyCode.Space)) && enSuelo)
+        {
+            GetComponent<Rigidbody>().AddForce(
+                Vector3.up * fuerzaSalto,
+                ForceMode.Impulse
+            );
 
             enSuelo = false;
         }
     }
 
-        public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Suelo"))
         {
-                enSuelo = true;
+            enSuelo = true;
         }
     }
 
@@ -61,8 +71,6 @@ public class Jugador : Personaje
     {
         base.Morir();
         //falta logica de juego para el GAME OVER
-        SceneManager.LoadScene(2 );
-
-        
+        SceneManager.LoadScene(2);
     }
 }
