@@ -107,6 +107,11 @@ public class Jugador : Personaje
 
     public void RecibirDano(int cantidad)
     {
+        if (esInmune)
+        {
+            Debug.Log("Jugador es inmune y no recibe daño");
+            return;
+        }
         bool murio = vidaPersonaje.RecibirDano(cantidad);
         if (murio)
         {
@@ -133,4 +138,19 @@ public class Jugador : Personaje
     {
         return puntajePersonaje.ObtenerPuntaje();
     }
+
+    /* Nuevo metodo Ocp para los power ups */
+
+    private bool esInmune = false;
+
+    public void SetInvulnerable(bool invulnerable)
+    {
+        esInmune = invulnerable;
+    }
+
+    public void Curar(int cantidad)
+    {
+        vidaPersonaje.curar(cantidad);
+    }
+
 }

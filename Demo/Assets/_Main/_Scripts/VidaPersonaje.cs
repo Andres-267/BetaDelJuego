@@ -22,11 +22,22 @@ public class VidaPersonaje
         if (cantidad <= 0) return false;
 
         vida -= cantidad;
-        if(vida <= 0)
+        if (vida <= 0)
         {
             vida = 0;
             return true;
         }
         return false;
+    } 
+
+    public void curar(int cantidad)
+    {
+        if (cantidad <= 0) return;
+        vida += cantidad;
+
+        if (vida >= vidaMaxima)
+        {
+            vida = vidaMaxima;
+        } 
     }
 }

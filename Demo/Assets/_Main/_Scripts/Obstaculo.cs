@@ -5,7 +5,7 @@ public class Obstaculo : ObjetoMundo
     private int danio = 1;
 
 
-    public override void AlContacto(Jugador jugador)
+    public override void Alcontacto(Jugador jugador)
     {
         jugador.RecibirDano(danio);
 
@@ -13,12 +13,5 @@ public class Obstaculo : ObjetoMundo
         Destroy(this.gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-           
-        } 
-    }
 
 }

@@ -1,14 +1,9 @@
 using UnityEngine;
 
-public class ObjetoMundo : MonoBehaviour
+public abstract class ObjetoMundo : MonoBehaviour
 {
     public string nombreObjeto;
-
-    // M�todo virtual que cada hijo implementa a su manera
-    public virtual void AlContacto(Jugador jugador)
-    {
-        Debug.Log(jugador.nombre + " toco " + nombreObjeto);
-    }
+    public abstract void Alcontacto(Jugador jugador);
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,7 +12,7 @@ public class ObjetoMundo : MonoBehaviour
         Jugador jugador = other.GetComponent<Jugador>();
         if(jugador != null)
         {
-            AlContacto(jugador);
+            Alcontacto(jugador);
         }
     }
 }

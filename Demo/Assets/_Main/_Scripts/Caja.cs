@@ -9,4 +9,11 @@ public class Caja : ObjetoMundo
             Destroy(gameObject, 0.8f);
         }
     }
+
+    public override void Alcontacto(Jugador jugador)
+    {
+        jugador.AgregarPuntos(10);
+        Debug.Log("Caja recogida puntos: " + jugador.ObtenerPuntaje());
+        Destroy(gameObject);
+    }
 }
