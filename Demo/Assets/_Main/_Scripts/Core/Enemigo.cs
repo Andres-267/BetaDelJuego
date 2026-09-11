@@ -20,13 +20,13 @@ public class Enemigo : Personaje
         if (collision.gameObject.CompareTag("Pared"))
         {
             direccion = -direccion;
-            Debug.Log("direccion " + direccion);
+            
         }
 
         if (collision.gameObject.CompareTag("Player"))
         {
             Jugador jugador = collision.gameObject.GetComponent<Jugador>();
-            if (jugador != null) { jugador.RecibirDano(1); }
+            if (jugador != null) { jugador.RecibirDAnio(1); }
         }
     }
 

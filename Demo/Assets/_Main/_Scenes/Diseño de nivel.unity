@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 102546336}
   - component: {fileID: 102546335}
   - component: {fileID: 102546334}
+  - component: {fileID: 102546338}
   m_Layer: 0
   m_Name: Plane (33)
   m_TagString: Pared
@@ -409,6 +410,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102546332}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &102546338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102546332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7deef0aa0525b47bb390a2e0213505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Muro
 --- !u!1 &133341635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,7 +1114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbace4c2f0677142b2f198f184068db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Caja
-  nombreObjeto: 
+  tieneMonedas: 1
+  cantidadMonedas: 5
 --- !u!1 &355947609
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,7 +2431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbace4c2f0677142b2f198f184068db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Caja
-  nombreObjeto: 
+  tieneMonedas: 1
+  cantidadMonedas: 5
 --- !u!1 &632842709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2659,161 +2674,6 @@ MonoBehaviour:
   nombreObjeto: Power up
   sanacion: 2
   invulnerabilidad: 5
---- !u!1 &648363048
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 648363055}
-  - component: {fileID: 648363054}
-  - component: {fileID: 648363053}
-  - component: {fileID: 648363052}
-  - component: {fileID: 648363050}
-  - component: {fileID: 648363049}
-  m_Layer: 0
-  m_Name: Enemigo (7)
-  m_TagString: Enemigo
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &648363049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648363048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c8d37264a11d24fb242588784e3bbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemigo
-  nombre: 
-  direccion: {x: -1, y: 0, z: 0}
---- !u!54 &648363050
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648363048}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &648363052
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648363048}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &648363053
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648363048}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: ecfa7324bb646604b8daae2241ad1285, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &648363054
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648363048}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &648363055
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648363048}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.493515, y: 44.55, z: -411.15945}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1564331977}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &675501904
 GameObject:
   m_ObjectHideFlags: 0
@@ -3484,7 +3344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbace4c2f0677142b2f198f184068db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Caja
-  nombreObjeto: 
+  tieneMonedas: 1
+  cantidadMonedas: 5
 --- !u!1 &810312301
 GameObject:
   m_ObjectHideFlags: 0
@@ -3662,7 +3523,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbace4c2f0677142b2f198f184068db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Caja
-  nombreObjeto: 
+  tieneMonedas: 1
+  cantidadMonedas: 5
+--- !u!54 &828456857
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828456848}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &837920438
 GameObject:
   m_ObjectHideFlags: 0
@@ -3789,7 +3678,7 @@ GameObject:
   - component: {fileID: 856615197}
   - component: {fileID: 856615196}
   - component: {fileID: 856615195}
-  - component: {fileID: 856615194}
+  - component: {fileID: 856615199}
   m_Layer: 0
   m_Name: Enemigo (8)
   m_TagString: Enemigo
@@ -3806,26 +3695,12 @@ Transform:
   m_GameObject: {fileID: 856615192}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -112.38, y: 73.3, z: -355.24}
+  m_LocalPosition: {x: -124.38, y: 73.3, z: -355.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1564331977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &856615194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 856615192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e027ec9e549ea96499a228fd55843db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemigo
-  nombre: kupa
-  direccion: {x: -1, y: 0, z: 0}
 --- !u!54 &856615195
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3851,7 +3726,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &856615196
 BoxCollider:
@@ -3931,6 +3806,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856615192}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &856615199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856615192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e027ec9e549ea96499a228fd55843db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemigo
+  nombre: 
+  direccion: {x: -1, y: 0, z: 0}
 --- !u!1 &869285917
 GameObject:
   m_ObjectHideFlags: 0
@@ -4807,7 +4696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbace4c2f0677142b2f198f184068db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Caja
-  nombreObjeto: 
+  tieneMonedas: 1
+  cantidadMonedas: 5
 --- !u!1 &1176195714
 GameObject:
   m_ObjectHideFlags: 0
@@ -5884,6 +5774,7 @@ GameObject:
   - component: {fileID: 1489620760}
   - component: {fileID: 1489620759}
   - component: {fileID: 1489620758}
+  - component: {fileID: 1489620762}
   m_Layer: 0
   m_Name: Plane (34)
   m_TagString: Pared
@@ -5899,13 +5790,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489620756}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0019437503, y: 0.0019437503, z: -0.70710415, w: 0.70710415}
+  m_LocalRotation: {x: -0.7071068, y: 0.7071068, z: -0, w: 0}
   m_LocalPosition: {x: 16.54, y: -6.51, z: 69.11}
   m_LocalScale: {x: 0.56005585, y: 1, z: 1.1242}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 355947610}
-  m_LocalEulerAnglesHint: {x: 0, y: 0.315, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: -90}
 --- !u!65 &1489620758
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5921,7 +5812,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6006,6 +5897,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489620756}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1489620762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489620756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7deef0aa0525b47bb390a2e0213505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Muro
 --- !u!1 &1564331976
 GameObject:
   m_ObjectHideFlags: 0
@@ -6045,7 +5948,6 @@ Transform:
   - {fileID: 2689644}
   - {fileID: 675501911}
   - {fileID: 599935437}
-  - {fileID: 648363055}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1580490132
@@ -6126,27 +6028,27 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 919ab8f4ae0e09244b75b4e57b86ebf2, type: 2}
     - target: {fileID: 65000013885214866, guid: 395dcd74773407e4faa9906eedf6f75d, type: 3}
       propertyPath: m_Size.x
-      value: 0.70179033
+      value: 0.8103733
       objectReference: {fileID: 0}
     - target: {fileID: 65000013885214866, guid: 395dcd74773407e4faa9906eedf6f75d, type: 3}
       propertyPath: m_Size.y
-      value: 1.0387479
+      value: 0.81238276
       objectReference: {fileID: 0}
     - target: {fileID: 65000013885214866, guid: 395dcd74773407e4faa9906eedf6f75d, type: 3}
       propertyPath: m_Size.z
-      value: 0.6708024
+      value: 0.8102383
       objectReference: {fileID: 0}
     - target: {fileID: 65000013885214866, guid: 395dcd74773407e4faa9906eedf6f75d, type: 3}
       propertyPath: m_Center.x
-      value: -0.019215781
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 65000013885214866, guid: 395dcd74773407e4faa9906eedf6f75d, type: 3}
       propertyPath: m_Center.y
-      value: 0.113182545
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 65000013885214866, guid: 395dcd74773407e4faa9906eedf6f75d, type: 3}
       propertyPath: m_Center.z
-      value: -0.0010970812
+      value: -0.000000029802322
       objectReference: {fileID: 0}
     - target: {fileID: 65000013885214866, guid: 395dcd74773407e4faa9906eedf6f75d, type: 3}
       propertyPath: m_IsTrigger
@@ -6159,6 +6061,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1000010619805496, guid: 395dcd74773407e4faa9906eedf6f75d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 828456853}
+    - targetCorrespondingSourceObject: {fileID: 1000010619805496, guid: 395dcd74773407e4faa9906eedf6f75d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 828456857}
   m_SourcePrefab: {fileID: 100100000, guid: 395dcd74773407e4faa9906eedf6f75d, type: 3}
 --- !u!1 &1586946851
 GameObject:
@@ -6597,7 +6502,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbace4c2f0677142b2f198f184068db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Caja
-  nombreObjeto: 
+  tieneMonedas: 1
+  cantidadMonedas: 5
 --- !u!1 &1675754759
 GameObject:
   m_ObjectHideFlags: 0
@@ -6853,7 +6759,7 @@ Transform:
   m_GameObject: {fileID: 1692457195}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.85, y: 73.71, z: 44.77}
+  m_LocalPosition: {x: 18.63, y: 74.66, z: 44.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7397,7 +7303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbace4c2f0677142b2f198f184068db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Caja
-  nombreObjeto: 
+  tieneMonedas: 1
+  cantidadMonedas: 5
 --- !u!1 &1815761605
 GameObject:
   m_ObjectHideFlags: 0
@@ -7746,7 +7653,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbace4c2f0677142b2f198f184068db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Caja
-  nombreObjeto: 
+  tieneMonedas: 1
+  cantidadMonedas: 5
 --- !u!65 &1926439425
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8020,7 +7928,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbace4c2f0677142b2f198f184068db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Caja
-  nombreObjeto: 
+  tieneMonedas: 1
+  cantidadMonedas: 5
 --- !u!1 &1991878269
 GameObject:
   m_ObjectHideFlags: 0

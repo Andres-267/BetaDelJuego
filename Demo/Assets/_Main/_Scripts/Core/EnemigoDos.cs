@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemigoDos : Personaje
+public class EnemigoDos : Personaje , IDanable
 {
     public float rangoMovimiento = 3f;
     public int dano = 10;
@@ -59,12 +59,12 @@ public class EnemigoDos : Personaje
 
         if (saltoEncima)
         {
-            Morir();
+            RecibirDAnio(1);
             col.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 5f, ForceMode.Impulse);
         }
         else
         {
-            col.gameObject.GetComponent<Jugador>().RecibirDano(dano);
+            col.gameObject.GetComponent<Jugador>().RecibirDAnio(dano);
         }
     }
 
@@ -72,5 +72,17 @@ public class EnemigoDos : Personaje
     {
         estaMuerto = true;
         Destroy(gameObject);
+    }
+
+    public void RecibirDAnio (int cant)
+    {
+        if (cant >0)
+        {
+            vida -= cant;
+        }
+        if (vida < 0)
+        {
+            Morir();
+        }
     }
 }

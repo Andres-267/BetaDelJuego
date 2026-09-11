@@ -7,7 +7,7 @@ public class Obstaculo : ObjetoMundo
 
     public override void Alcontacto(Jugador jugador)
     {
-        jugador.RecibirDano(danio);
+        jugador.RecibirDAnio(danio);
 
         Debug.Log("vida restante: " + jugador.GetVida());
         Destroy(this.gameObject);

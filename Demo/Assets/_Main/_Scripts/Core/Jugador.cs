@@ -76,7 +76,7 @@ using UnityEngine.SceneManagement;
 }
 */
 
-public class Jugador : Personaje
+public class Jugador : Personaje, IDanable
 {
     [SerializeField] private int fuerzaSalto;
     [SerializeField] private int vidaMaxima;
@@ -103,24 +103,28 @@ public class Jugador : Personaje
     private void OnCollisionEnter(Collision collision)
     {
         movimientoJugador.OnCollisionEnter(collision);
+
+        IDanable danable = collision.gameObject.GetComponent<IDanable>();
+        if (danable == null) return;
+
+        // compruebo la direccion de collision
+        bool saltoEncima = collision.contacts[0].normal.y > 0.5;
+
+        if (saltoEncima)
+        {
+            danable.RecibirDAnio(1);
+            GetComponent<Rigidbody>().AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse);
+        }
     }
 
-    public void RecibirDano(int cantidad)
+    public void RecibirDAnio(int cantidad)
     {
         if (esInmune)
         {
-            Debug.Log("Jugador es inmune y no recibe daño");
+            Debug.Log("Jugador es inmune y no recibe daño.");
             return;
-        }
-        bool murio = vidaPersonaje.RecibirDano(cantidad);
-        if (murio)
-        {
-            Morir();
-        }
-
-       
+            }
     }
-
     public override void Morir()
     {
             base.Morir();
@@ -154,3 +158,4 @@ public class Jugador : Personaje
     }
 
 }
+
