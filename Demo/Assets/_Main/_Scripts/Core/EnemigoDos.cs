@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemigoDos : Personaje , IDanable
 {
+    
     public float rangoMovimiento = 3f;
     public int dano = 10;
 

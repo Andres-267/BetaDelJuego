@@ -18,6 +18,7 @@ public class Caja : MonoBehaviour ,IDanable
     }
 }*/
 {
+    //cumple interface segregation principle
     [SerializeField] private bool tieneMonedas = true;
     [SerializeReference] private int cantidadMonedas = 5;
     
