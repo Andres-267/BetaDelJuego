@@ -1,32 +1,16 @@
 using UnityEngine;
 
-public class Caja : MonoBehaviour ,IDanable
-/*{   
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Destroy(gameObject, 0.8f);
-        }
-    }
-
-    public override void Alcontacto(Jugador jugador)
-    {
-        jugador.AgregarPuntos(10);
-        Debug.Log("Caja recogida puntos: " + jugador.ObtenerPuntaje());
-        Destroy(gameObject);
-    }
-}*/
+public class Caja : MonoBehaviour ,IDanable ///Interface Segregation: implementa una unica interfaz con un solo metodo 
 {
-    //cumple interface segregation principle
+    ///cumple interface segregation principle porque quien la daña depende de IDanable
     [SerializeField] private bool tieneMonedas = true;
     [SerializeReference] private int cantidadMonedas = 5;
     
-    public void RecibirDAnio(int cantidad)
+    public void RecibirDAnio(int cantidad)  /// Single responsability: Solo se ocupa de una cosa
     {
         Romperse();
     }
-    private void Romperse()
+    private void Romperse() /// Single responsability: Solo se ocupa de una cosa
     {
         if (tieneMonedas)
         {

@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Obstaculo : ObjetoMundo
 {
-    private int danio = 1;
+    private int danio = 1;  /// Open / closed: se añade un objeto nuevo sin tocar el resto del sistema de danio 
 
-    //detecta la colision con el jugador y le quita vida
-    public override void Alcontacto(Jugador jugador)
+    /// Single responsability: se encarga unicamente de dañar al player
+    public override void Alcontacto(Jugador jugador)  /// Liskov: es abstracta por lo tanto la base no se cambia
     {
         jugador.RecibirDAnio(danio);
 

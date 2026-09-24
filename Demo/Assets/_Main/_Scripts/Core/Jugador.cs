@@ -76,18 +76,18 @@ using UnityEngine.SceneManagement;
 }
 */
 
-public class Jugador : Personaje, IDanable
+public class Jugador : Personaje, IDanable  /// Interface Segregation: implementa metodos que necesito
 {
     [SerializeField] private int fuerzaSalto;
     [SerializeField] private int vidaMaxima;
 
-    private VidaPersonaje vidaPersonaje;
+    private VidaPersonaje vidaPersonaje;              ///
 
-    private MovimientoJugador movimientoJugador;
+    private MovimientoJugador movimientoJugador;      /// Single responsability: no implmentan codigo, encarga clases separadas cada una con un papel distinto para permitir la escalabilidad a futuro y la deteccion de errores
 
-    private PuntajePersonaje puntajePersonaje;
+    private PuntajePersonaje puntajePersonaje;       ///    
 
-    protected override void Start()
+    protected override void Start()   /// Liskov: El override llama a "base" y agrega mas comportamientos. 
     {
         base.Start();
         vidaPersonaje = new VidaPersonaje(vidaMaxima);
@@ -104,7 +104,7 @@ public class Jugador : Personaje, IDanable
     {
         movimientoJugador.OnCollisionEnter(collision);
 
-        IDanable danable = collision.gameObject.GetComponent<IDanable>();
+        IDanable danable = collision.gameObject.GetComponent<IDanable>(); /// Dependency Inversion: Depende de "IDanable" , puede dañar cualquier cosa que implmente la interfaz
         if (danable == null) return;
 
         // compruebo la direccion de collision
@@ -123,10 +123,11 @@ public class Jugador : Personaje, IDanable
         {
             Debug.Log("Jugador es inmune y no recibe daño.");
             return;
+            
             }
     }
-    public override void Morir()
-    {
+    public override void Morir()   /// Open / closed: Extiende la variable de morir en el script de personaje sin modificarlo
+    {                              /// Liskov: Igual llaman a base para ahorrar codigo y sobreescibirlo para agregarle metodos nuevos
             base.Morir();
             
             SceneManager.LoadScene(2);
@@ -147,12 +148,12 @@ public class Jugador : Personaje, IDanable
 
     private bool esInmune = false;
 
-    public void SetInvulnerable(bool invulnerable)
+    public void SetInvulnerable(bool invulnerable)  /// Open / closed: El personaje llama a invulnerable pero no cambia la logica
     {
         esInmune = invulnerable;
     }
 
-    public void Curar(int cantidad)
+    public void Curar(int cantidad)                /// Open / Closed: El personaje llama a curar pero no cambia la logica
     {
         vidaPersonaje.curar(cantidad);
     }

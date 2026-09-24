@@ -8,7 +8,7 @@ public class MovimientoJugador
     private Rigidbody rb;
     private bool enSuelo;
 
-    public MovimientoJugador(int _velocidad, float _fuerzaSalto, Transform _transform, Rigidbody _rb)
+    public MovimientoJugador(int _velocidad, float _fuerzaSalto, Transform _transform, Rigidbody _rb) /// Open / closed: los valores de velocidad y salto entran al constructor y ayuda a modficar distintos valores sin modificar la clase 
     {
         this.velocidad = _velocidad;
         this.fuerzaSalto = _fuerzaSalto;
@@ -16,7 +16,7 @@ public class MovimientoJugador
         this.rb = _rb;
     }
 
-    public void Mover()
+    public void Mover()  /// Single responsability: Solamente se encarga de recibir los inputs y realizar sus operaciones para ejecutarlas
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -38,12 +38,11 @@ public class MovimientoJugador
         }
 
     }
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision) /// Single responsability: la clase se encarga unicamente del salto
     {
         if (collision.gameObject.CompareTag("Suelo"))
         {
             enSuelo = true;
-            Debug.Log("Jugador en suelo");
         }
     }
 

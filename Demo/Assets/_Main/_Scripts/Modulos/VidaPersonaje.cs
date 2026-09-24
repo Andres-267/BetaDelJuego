@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class VidaPersonaje
 {
-    private int vidaMaxima;
-    private int vida;
+    private int vidaMaxima;               ///
+    private int vida;                     /// Single responsability: Se encargan solo de gestionar la salud y respetar los limites de a vida
 
-    public VidaPersonaje(int vidaMaxima)
+    public VidaPersonaje(int vidaMaxima)  /// Open / closed: el maximo entra al constructor lo que permite que cada personaje tenga su vida sin modificar la clase
     {
         this.vidaMaxima = vidaMaxima;
         this.vida = vidaMaxima;

@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class EnemigoDos : Personaje , IDanable
+public class EnemigoDos : Personaje , IDanable  /// Interface Segregation: solo implementa el metodo de "recibirdanio"
 {
     
-    public float rangoMovimiento = 3f;
-    public int dano = 10;
+    public float rangoMovimiento = 15f;  /// Open / closed: Permiten configurar desde el inspector sin necesidad de tocar el codigo
+    public int dano = 10;              ///
 
     private Rigidbody rb;
     private Vector3 posicionInicial;
@@ -61,7 +61,7 @@ public class EnemigoDos : Personaje , IDanable
         if (saltoEncima)
         {
             RecibirDAnio(1);
-            col.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 5f, ForceMode.Impulse);
+            col.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 2f, ForceMode.Impulse);
         }
         else
         {
@@ -69,7 +69,7 @@ public class EnemigoDos : Personaje , IDanable
         }
     }
 
-    public override void Morir()
+    public override void Morir()  /// Open / closed: "morir" extiende codigo gracias a personaje por herencia
     {
         estaMuerto = true;
         Destroy(gameObject);
