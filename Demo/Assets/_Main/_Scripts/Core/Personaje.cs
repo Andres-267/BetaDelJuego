@@ -1,6 +1,6 @@
 using UnityEngine;
 /// Interface Segregation: no obliga a implementar ninguna interfaz eso depende de los hijos
-public class Personaje : MonoBehaviour
+public class Personaje : MonoBehaviour 
 {
     public string nombre;         ///
     protected int vida;           /// Single responsability: sirve como base ademas de estar restringida para que solo se modifique dentro y por las clases que la heredan
@@ -14,7 +14,7 @@ public class Personaje : MonoBehaviour
     }
 
     public virtual void Morir()
-    {
+    {   
         Debug.Log("se murio");
     }
 

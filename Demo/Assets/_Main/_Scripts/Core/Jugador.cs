@@ -124,7 +124,14 @@ public class Jugador : Personaje, IDanable  /// Interface Segregation: implement
             Debug.Log("Jugador es inmune y no recibe daño.");
             return;
             
-            }
+        }
+
+        vidaPersonaje.RecibirDano(cantidad);
+
+        if (!vidaPersonaje.EstaVivo())
+        {
+            Morir();
+        }
     }
     public override void Morir()   /// Open / closed: Extiende la variable de morir en el script de personaje sin modificarlo
     {                              /// Liskov: Igual llaman a base para ahorrar codigo y sobreescibirlo para agregarle metodos nuevos

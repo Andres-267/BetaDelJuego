@@ -28,6 +28,7 @@ public class VidaPersonaje
             return true;
         }
         return false;
+
     } 
 
     public void curar(int cantidad)
@@ -39,5 +40,10 @@ public class VidaPersonaje
         {
             vida = vidaMaxima;
         } 
+    }
+
+    public bool EstaVivo()
+    {
+        return vida > 0;
     }
 }
