@@ -87,21 +87,31 @@ public class Jugador : Personaje, IDanable  /// Interface Segregation: implement
 
     private PuntajePersonaje puntajePersonaje;       ///    
 
+    private int vidaAnterior; /// provisional 
+
     protected override void Start()   /// Liskov: El override llama a "base" y agrega mas comportamientos. 
     {
         base.Start();
         vidaPersonaje = new VidaPersonaje(vidaMaxima);
         puntajePersonaje = new PuntajePersonaje();
         movimientoJugador = new MovimientoJugador(velocidad, fuerzaSalto, this.transform, this.GetComponent<Rigidbody>());
+
+        vidaAnterior = vidaPersonaje.GetVida();  /// provisional
     }
 
     private void Update()
     {
         movimientoJugador.Mover();
+
+    if (Input.GetKeyDown(KeyCode.H)) RecibirDAnio(10);
+    Debug.Log("daño activo");                           /// borrar confirmacion de errores
+    if (Input.GetKeyDown(KeyCode.J)) Curar(10);
+    Debug.Log("cura activa");
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+
         movimientoJugador.OnCollisionEnter(collision);
 
         IDanable danable = collision.gameObject.GetComponent<IDanable>(); /// Dependency Inversion: Depende de "IDanable" , puede dañar cualquier cosa que implmente la interfaz
@@ -132,6 +142,8 @@ public class Jugador : Personaje, IDanable  /// Interface Segregation: implement
         {
             Morir();
         }
+
+        Debug.Log($"RecibirDAnio({cantidad}) llamado"); /// provisional borrar
     }
     public override void Morir()   /// Open / closed: Extiende la variable de morir en el script de personaje sin modificarlo
     {                              /// Liskov: Igual llaman a base para ahorrar codigo y sobreescibirlo para agregarle metodos nuevos
@@ -163,6 +175,9 @@ public class Jugador : Personaje, IDanable  /// Interface Segregation: implement
     public void Curar(int cantidad)                /// Open / Closed: El personaje llama a curar pero no cambia la logica
     {
         vidaPersonaje.curar(cantidad);
+
+            Debug.Log($"Curar({cantidad}) llamado");
+             vidaPersonaje.curar(cantidad);             /// Borrar provisional
     }
 
 }

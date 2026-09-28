@@ -4,4 +4,5 @@ public interface IDanable  //es una interfaz no hereda nada de la clase padre y 
 {
     //Interface segregation principle (ISP) - Principio de segregación de interfaces
     void RecibirDAnio(int cantidad);
+    
 }

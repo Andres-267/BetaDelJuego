@@ -4,7 +4,7 @@ public class EnemigoDos : Personaje , IDanable  /// Interface Segregation: solo 
 {
     
     public float rangoMovimiento = 15f;  /// Open / closed: Permiten configurar desde el inspector sin necesidad de tocar el codigo
-    public int dano = 10;              ///
+    public int dano = 2;              ///
 
     private Rigidbody rb;
     private Vector3 posicionInicial;
@@ -56,7 +56,7 @@ public class EnemigoDos : Personaje , IDanable  /// Interface Segregation: solo 
         if (!col.gameObject.CompareTag("Player")) return;
 
         bool saltoEncima = col.transform.position.y >
-                           transform.position.y + 0.3f;
+                           transform.position.y + 0.5f;
 
         if (saltoEncima)
         {

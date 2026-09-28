@@ -10,7 +10,7 @@ public class Obstaculo : ObjetoMundo
         jugador.RecibirDAnio(danio);
 
         Debug.Log("vida restante: " + jugador.GetVida());
-        Destroy(this.gameObject);
+        
     }
 
 

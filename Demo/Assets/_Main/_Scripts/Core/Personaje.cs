@@ -10,7 +10,7 @@ public class Personaje : MonoBehaviour
     protected virtual void Start()  /// Open/ closed: el virtual ayuda a que quien lo hereda añada su comportumaniento y eso es loq ue hace jugador
     {
         vida = vidaInicial;
-        Debug.Log(nombre + " se a creado con " + vida + " vida inicial");
+        
     }
 
     public virtual void Morir()
