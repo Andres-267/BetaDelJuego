@@ -1,10 +1,11 @@
+
 using UnityEngine;
 
-public class EnemigoDos : Personaje , IDanable  /// Interface Segregation: solo implementa el metodo de "recibirdanio"
+public class EnemigoDos : Personaje, IDanable
 {
-    
-    public float rangoMovimiento = 15f;  /// Open / closed: Permiten configurar desde el inspector sin necesidad de tocar el codigo
-    public int dano = 2;              ///
+    [Header("Configuración")]
+    public float rangoMovimiento = 15f;
+    public int dano = 2;
 
     private Rigidbody rb;
     private Vector3 posicionInicial;
@@ -14,13 +15,14 @@ public class EnemigoDos : Personaje , IDanable  /// Interface Segregation: solo 
     protected override void Start()
     {
         base.Start();
+
         rb = GetComponent<Rigidbody>();
         posicionInicial = transform.position;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        if (estaMuerto) return;
+        if (estaMuerto || rb == null) return;
 
         float distancia = transform.position.x - posicionInicial.x;
 
@@ -37,51 +39,76 @@ public class EnemigoDos : Personaje , IDanable  /// Interface Segregation: solo 
         );
     }
 
-    void OnCollisionEnter(Collision col)
+    private void OnCollisionEnter(Collision col)
     {
         if (estaMuerto) return;
 
-        // Choca con una pared — cambia de dirección
+        // Cambiar de dirección al chocar lateralmente
         foreach (ContactPoint c in col.contacts)
         {
             if (Mathf.Abs(c.normal.x) > 0.5f)
             {
-                direccion *= -1;
-                posicionInicial = transform.position;
+                if (col.gameObject.CompareTag("Pared"))
+                {
+                    direccion *= -1;
+                    posicionInicial = transform.position;
+                }
+
                 break;
             }
         }
 
-        // Choca con el jugador
+        // Comprobar si chocó con el jugador
         if (!col.gameObject.CompareTag("Player")) return;
 
-        bool saltoEncima = col.transform.position.y >
-                           transform.position.y + 0.5f;
+        Jugador jugador = col.gameObject.GetComponent<Jugador>();
+
+        if (jugador == null) return;
+
+        bool saltoEncima =
+            col.transform.position.y > transform.position.y + 0.5f;
 
         if (saltoEncima)
         {
             RecibirDAnio(1);
-            col.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 2f, ForceMode.Impulse);
+
+            Rigidbody rbJugador = col.gameObject.GetComponent<Rigidbody>();
+
+            if (rbJugador != null)
+            {
+                rbJugador.AddForce(
+                    Vector3.up * 2f,
+                    ForceMode.Impulse
+                );
+            }
         }
         else
         {
-            col.gameObject.GetComponent<Jugador>().RecibirDAnio(dano);
+            jugador.RecibirDAnio(dano);
         }
     }
 
-    public override void Morir()  /// Open / closed: "morir" extiende codigo gracias a personaje por herencia
+    public override void Morir()
     {
+        if (estaMuerto) return;
+
         estaMuerto = true;
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+        }
+
         Destroy(gameObject);
     }
 
-    public void RecibirDAnio (int cant)
+    public void RecibirDAnio(int cant)
     {
-        if (cant >0)
-        {
-            vida -= cant;
-        }
-        if (vida < 0)
+        if (estaMuerto || cant <= 0) return;
+
+        vida -= cant;
+
+        if (vida <= 0)
         {
             Morir();
         }
