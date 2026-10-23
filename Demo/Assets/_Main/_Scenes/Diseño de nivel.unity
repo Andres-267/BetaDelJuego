@@ -3578,6 +3578,7 @@ MonoBehaviour:
   rotacionNormal: {x: 0, y: 0, z: 0}
   posicionEspecial: {x: 0, y: 0, z: 0}
   rotacionEspecial: {x: 90, y: 0, z: 5}
+  restaurarPerspectiva: 0
 --- !u!65 &484458358
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11207,8 +11208,9 @@ MonoBehaviour:
   camara: {fileID: 1178762159}
   posicionNormal: {x: 0.4461975, y: 9, z: -8}
   rotacionNormal: {x: 50, y: 0, z: 0}
-  posicionEspecial: {x: 0, y: 0, z: 0}
-  rotacionEspecial: {x: 70, y: 0, z: 0}
+  posicionEspecial: {x: 3.5, y: 16.46, z: 0.5}
+  rotacionEspecial: {x: 90, y: 0, z: 0}
+  restaurarPerspectiva: 0
 --- !u!4 &1397601972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400008, guid: dcf39c3c160b51b49af399efea061f40, type: 3}
@@ -13291,7 +13293,7 @@ Transform:
   m_GameObject: {fileID: 1692457195}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 213.5, y: 74, z: 45.57}
+  m_LocalPosition: {x: 20.2, y: 74, z: 44.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14374,6 +14376,8 @@ GameObject:
   - component: {fileID: 1815761609}
   - component: {fileID: 1815761608}
   - component: {fileID: 1815761607}
+  - component: {fileID: 1815761611}
+  - component: {fileID: 1815761610}
   m_Layer: 0
   m_Name: Plane (32)
   m_TagString: Suelo
@@ -14475,6 +14479,45 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815761605}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1815761610
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815761605}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1815761611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815761605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e32c48292057d4393dc4987271a0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CambioPerspectiva
+  camara: {fileID: 1178762159}
+  posicionNormal: {x: 0.4461975, y: 9, z: -8}
+  rotacionNormal: {x: 50, y: 0, z: 0}
+  posicionEspecial: {x: 0, y: 0, z: 0}
+  rotacionEspecial: {x: 70, y: 0, z: 0}
+  restaurarPerspectiva: 1
 --- !u!1001 &1834878150
 PrefabInstance:
   m_ObjectHideFlags: 0
