@@ -145,13 +145,46 @@ public class Jugador : Personaje, IDanable  /// Interface Segregation: implement
 
         Debug.Log($"RecibirDAnio({cantidad}) llamado"); /// provisional borrar
     }
-    public override void Morir()   /// Open / closed: Extiende la variable de morir en el script de personaje sin modificarlo
-    {                              /// Liskov: Igual llaman a base para ahorrar codigo y sobreescibirlo para agregarle metodos nuevos
-            base.Morir();
-            
-            SceneManager.LoadScene(2);
-    
+
+    public override void Morir()            /// Open / closed: Extiende la variable de morir en el script de personaje sin modificarlo
+    {                                           /// Liskov: Igual llaman a base para ahorrar codigo y sobreescibirlo para agregarle metodos nuevos
+        if (Checkpoint.existeCheckpoint)
+        {
+            Reaparecer();
+            return;
+        }
+
+        base.Morir();
+        SceneManager.LoadScene(2);
     }
+
+    private void Reaparecer()
+{
+    Rigidbody rb = GetComponent<Rigidbody>();
+
+    if (rb != null)
+    {
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
+
+    transform.position = Checkpoint.ultimaPosicion;
+
+    // Restaura la vida completa
+    vidaPersonaje.curar(vidaMaxima);
+
+    // Pequeña invulnerabilidad para no morir de nuevo al instante
+    StartCoroutine(InmunidadTemporal(2f));
+
+    Debug.Log("Jugador reaparece en el checkpoint: " + Checkpoint.ultimaPosicion);
+}
+
+private System.Collections.IEnumerator InmunidadTemporal(float segundos)
+{
+    esInmune = true;
+    yield return new WaitForSeconds(segundos);
+    esInmune = false;
+}
 
     public void AgregarPuntos(int cantidad)
     {
