@@ -1,0 +1,351 @@
+fileFormatVersion: 2
+guid: 39a6b3d71e2c3e24fa70978ea6cdc7d8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8843708047699797962
+    second: parasiteZombie_normal_0
+  - first:
+      213: -2871395080441449291
+    second: parasiteZombie_normal_1
+  - first:
+      213: 96813928806236445
+    second: parasiteZombie_normal_2
+  - first:
+      213: 4456750809628896108
+    second: parasiteZombie_normal_3
+  - first:
+      213: -3840329238391158679
+    second: parasiteZombie_normal_4
+  - first:
+      213: -2279675118022632836
+    second: parasiteZombie_normal_5
+  - first:
+      213: 4074773151225018785
+    second: parasiteZombie_normal_6
+  - first:
+      213: 7029731630393443663
+    second: parasiteZombie_normal_7
+  - first:
+      213: -4457639682550737178
+    second: parasiteZombie_normal_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: parasiteZombie_normal_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1501
+        width: 476
+        height: 525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac7e8680d992bba70800000000000000
+      internalID: 8843708047699797962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parasiteZombie_normal_1
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 1469
+        width: 605
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b4bb7c3361c628d0800000000000000
+      internalID: -2871395080441449291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parasiteZombie_normal_2
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 1886
+        width: 265
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d114ecb51c3f75100800000000000000
+      internalID: 96813928806236445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parasiteZombie_normal_3
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1700
+        width: 228
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6b6d5c9f3f89dd30800000000000000
+      internalID: 4456750809628896108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parasiteZombie_normal_4
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 1194
+        width: 734
+        height: 830
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 968062597e864bac0800000000000000
+      internalID: -3840329238391158679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parasiteZombie_normal_5
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 999
+        width: 1349
+        height: 648
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7ad6f2fe87fc50e0800000000000000
+      internalID: -2279675118022632836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parasiteZombie_normal_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 14
+        width: 663
+        height: 1119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a9f01b87908c8830800000000000000
+      internalID: 4074773151225018785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parasiteZombie_normal_7
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 91
+        width: 962
+        height: 1190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f45cde73caf9e8160800000000000000
+      internalID: 7029731630393443663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parasiteZombie_normal_8
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 5
+        width: 676
+        height: 1190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e6d0e883584322c0800000000000000
+      internalID: -4457639682550737178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      parasiteZombie_normal_0: 8843708047699797962
+      parasiteZombie_normal_1: -2871395080441449291
+      parasiteZombie_normal_2: 96813928806236445
+      parasiteZombie_normal_3: 4456750809628896108
+      parasiteZombie_normal_4: -3840329238391158679
+      parasiteZombie_normal_5: -2279675118022632836
+      parasiteZombie_normal_6: 4074773151225018785
+      parasiteZombie_normal_7: 7029731630393443663
+      parasiteZombie_normal_8: -4457639682550737178
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

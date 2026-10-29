@@ -87,7 +87,8 @@ public class Jugador : Personaje, IDanable  /// Interface Segregation: implement
 
     private PuntajePersonaje puntajePersonaje;       ///    
 
-    private int vidaAnterior; /// provisional 
+    private AnimacionJugador animacionJugador;
+
 
     protected override void Start()   /// Liskov: El override llama a "base" y agrega mas comportamientos. 
     {
@@ -95,18 +96,16 @@ public class Jugador : Personaje, IDanable  /// Interface Segregation: implement
         vidaPersonaje = new VidaPersonaje(vidaMaxima);
         puntajePersonaje = new PuntajePersonaje();
         movimientoJugador = new MovimientoJugador(velocidad, fuerzaSalto, this.transform, this.GetComponent<Rigidbody>());
-
-        vidaAnterior = vidaPersonaje.GetVida();  /// provisional
+        animacionJugador = new AnimacionJugador(GetComponentInChildren<Animator>());
+  
     }
 
     private void Update()
     {
         movimientoJugador.Mover();
+        animacionJugador.Actualizar(movimientoJugador.EstaMoviendose, movimientoJugador.EnSuelo);
 
-    if (Input.GetKeyDown(KeyCode.H)) RecibirDAnio(10);
-    Debug.Log("daño activo");                           /// borrar confirmacion de errores
-    if (Input.GetKeyDown(KeyCode.J)) Curar(10);
-    Debug.Log("cura activa");
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -119,6 +118,7 @@ public class Jugador : Personaje, IDanable  /// Interface Segregation: implement
 
         // compruebo la direccion de collision
         bool saltoEncima = collision.contacts[0].normal.y > 0.5;
+
 
         if (saltoEncima)
         {
@@ -212,6 +212,8 @@ private System.Collections.IEnumerator InmunidadTemporal(float segundos)
             Debug.Log($"Curar({cantidad}) llamado");
              vidaPersonaje.curar(cantidad);             /// Borrar provisional
     }
+
+    
 
 }
 

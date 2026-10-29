@@ -7,10 +7,29 @@ public class EnemigoDos : Personaje, IDanable
     public float rangoMovimiento = 15f;
     public int dano = 2;
 
+    [Header("Orientación del modelo")]
+    [SerializeField] private float anguloDerecha = 90f;
+    [SerializeField] private float anguloIzquierda = -90f;
+
     private Rigidbody rb;
     private Vector3 posicionInicial;
     private int direccion = 1;
     private bool estaMuerto = false;
+
+
+private void CambiarDireccion()
+{
+    direccion *= -1;
+    posicionInicial = transform.position;
+    OrientarModelo();
+}
+
+private void OrientarModelo()
+{
+    float angulo = direccion > 0 ? anguloDerecha : anguloIzquierda;
+    transform.rotation = Quaternion.Euler(0f, angulo, 0f);
+}
+
 
     protected override void Start()
     {
@@ -18,6 +37,7 @@ public class EnemigoDos : Personaje, IDanable
 
         rb = GetComponent<Rigidbody>();
         posicionInicial = transform.position;
+        OrientarModelo();
     }
 
     private void FixedUpdate()
@@ -28,9 +48,9 @@ public class EnemigoDos : Personaje, IDanable
 
         if (Mathf.Abs(distancia) >= rangoMovimiento)
         {
-            direccion *= -1;
-            posicionInicial = transform.position;
+            CambiarDireccion();
         }
+
 
         rb.linearVelocity = new Vector3(
             velocidad * direccion,
@@ -48,10 +68,10 @@ public class EnemigoDos : Personaje, IDanable
         {
             if (Mathf.Abs(c.normal.x) > 0.5f)
             {
+
                 if (col.gameObject.CompareTag("Pared"))
                 {
-                    direccion *= -1;
-                    posicionInicial = transform.position;
+                    CambiarDireccion();
                 }
 
                 break;
