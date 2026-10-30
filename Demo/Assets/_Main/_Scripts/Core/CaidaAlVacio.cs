@@ -43,6 +43,8 @@ public class CaidaAlVacio : MonoBehaviour
             transform.position = destino;
         }
 
+        Caja.RestaurarTodasLasCajas();
+
         reapareciendo = false;
     }
 }
